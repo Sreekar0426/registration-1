@@ -17,6 +17,7 @@ import org.mockito.junit.MockitoRule;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,7 @@ import io.mosip.registration.dto.AuthTokenDTO;
 import io.mosip.registration.dto.LoginUserDTO;
 import io.mosip.registration.entity.MachineMaster;
 import io.mosip.registration.exception.RegBaseCheckedException;
+import io.mosip.registration.service.security.ClientSecurity;
 import io.mosip.registration.tpm.spi.TPMUtil;
 import io.mosip.registration.util.advice.RestClientAuthAdvice;
 import io.mosip.registration.util.restclient.RequestHTTPDTO;
@@ -52,6 +54,8 @@ public class RestClientAuthAdviceTest {
 	private ProceedingJoinPoint proceedingJoinPoint;
 	@Mock
 	private MachineMappingDAO machineMappingDAO;
+	@Mock
+	private ClientSecurity clientSecurity;
 	@InjectMocks
 	private RestClientAuthAdvice restClientAuthAdvice;
 
